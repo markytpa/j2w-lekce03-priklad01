@@ -13,27 +13,27 @@
 <div class="container">
     <div class="person-info">
         <div class="photo-border"></div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Jan_Palach_foto_z_pr%C5%AFkazu.JPG" class="photo" alt="profilové foto"/>
+        <img src="https://thispersondoesnotexist.com/image" class="photo" alt="profilové foto"/>
         <div class="row">
             <span class="label">Jméno</span>
-            <span class="value">Jan</span>
+            <span class="value" th:text="${person.givenName}">Jan</span>
         </div>
         <div class="row">
             <span class="label">Příjmení</span>
-            <span class="value">Palach</span>
+            <span class="value" th:text="${person.surname}">Palach</span>
         </div>
         <div class="row">
             <span class="label">Datum narození</span>
-            <span class="value">11. 8. 1948</span>
+            <span class="value" th:text="${#temporals.format(person.birthDate, 'd. M. yyyy')}">11. 8. 1948</span>
         </div>
         <div class="row">
             <span class="label">Věk</span>
-            <span class="value">72</span>
+            <span class="value" th:text="${person.age}">72</span>
         </div>
     </div>
     <div class="address">
-        <div class="address-line">Smetanova 337</div>
-        <div class="address-line"><span>27716</span> <span>Všetaty</span></div>
+        <div class="address-line" th:text="${address.streetAndNumbers}">Smetanova 337</div>
+        <div class="address-line"><span th:text="${address.zipCode}">27716</span> <span th:text="${address.city}">Všetaty</span></div>
     </div>
 </div>
 </body>
